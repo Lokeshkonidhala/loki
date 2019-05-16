@@ -1,0 +1,42 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+    </style>
+    <title>Title</title>
+    <style>
+    table {
+  table-layout: fixed;
+}
+    </style>
+</head>
+<body>
+
+{% include 'admin_login.html' %}
+
+<table>
+<script>
+    var x;
+</script>
+    <tr>
+        for (x=0,x<5,x++){
+        {% for x in data %}
+        <th>
+            <img src="{{ x.upload_image.url }}" width="200" height="300">
+             <b/>{{ x.product_price }}
+
+
+
+        {% endfor %}
+        </th>
+
+
+    </tr>
+}
+
+</table>
+
+</body>
+</html>

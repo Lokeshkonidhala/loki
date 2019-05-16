@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+.container {
+  width: 50%;
+}
+
+.image {
+
+
+  width: 100%;
+  height: auto;
+
+}
+
+.middle {
+
+  opacity: 0;
+
+  top: 50%;
+  left: 50%;
+
+  text-align: center;
+}
+
+
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #fbb444;
+  color: white;
+  font-size: 10px;
+  padding: 16px 32px;
+}
+</style>
+</head>
+<body>
+<table align="center" border="0">
+    <tr bgcolor="#534f50">
+        <th height="100px" width="10000px" colspan="2">
+            <button type="submit"><a href="/u_viewall/"> VIEW PRODUCT </a></button>
+            <button type="submit"><a href="/myorders/">MY ORDERS</a></button>
+            <button type="submit"><a href="/userlogout/"> LOGOUT</a></button>
+        </th>
+    </tr>
+    <tr bgcolor="#9c9899">
+        <th height="100px" width="1000px">
+            <h3> A NETWORK -BASED SPAM DETECTION FRAMEWORK FOR REVIEWS IN ONLINE SOCIAL</h3>
+                                    <h3>MEDIA</h3>
+        </th>
+    </tr>
+</table>
+<table align="center">
+    <tr>
+        {% for x in data %}
+        <th>
+
+             <div class="container">
+
+            <img src="{{ x.upload_image.url }}" alt="Avatar" class="image" width="350px" height="300px"><br/>
+                {{ x.product_price }}<br/>
+
+                 <button type="submit"><a href="/post_comment{{ x.id }}/"> POST COMMENT</a></button>
+
+             </div>
+             <div class="middle">
+             <div class="text">
+             </div>
+             </div>
+
+        </th>
+        {% endfor %}
+    </tr>
+</table>
+
+
+
+</body>
+</html>

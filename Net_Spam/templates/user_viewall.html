@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+.container {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #fbb444;
+  color: white;
+  font-size: 10px;
+  padding: 16px 32px;
+}
+</style>
+</head>
+<body>
+{% include 'user_login.html' %}
+
+<table align="center">
+
+
+    <tr>
+        {% for x in data %}
+        <th>
+
+             <div class="container">
+            <img src="{{ x.upload_image.url }}" alt="Avatar" class="image" width="350px" height="300px"><br/>
+                {{ x.product_price }}
+             <div class="middle">
+             <div class="text"><a href="/store_orders{{ x.id }}/"> ORDER</a></div>
+             </div>
+             </div>
+
+        </th>
+        {% endfor %}
+    </tr>
+</table>
+
+
+
+</body>
+</html>

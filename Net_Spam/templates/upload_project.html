@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% include 'admin_login.html' %}
+
+<table align="center">
+    <tr><td></td></tr>
+    <tr><td></td></tr>
+    <tr bgcolor="#d7d3d4"><br><br>
+        <th height="30px" width="10000px">
+                <h2>Please ...Upload a Product</h2>
+        </th>
+    </tr>
+</table>
+<form action="/upload_validate/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+<table align="center">
+    <tr>
+        <th width="200">
+            Product Category  </th>
+        <th width="200">
+            <select name="product">
+            <option>--select--</option>
+            <option>Mobile</option>
+            <option>TV</option>
+            <option>Cloths</option>
+            <option>Foot Wear</option>
+        </select></th><br>
+    </tr>
+    <tr>
+        <th width="200">Product Name</th>
+        <th width="100"><input type="text" name="product_name" placeholder="Enter Product Name"><br>
+        </th>
+    </tr>
+    <tr>
+        <th width="200">Product Brand</th>
+        <th width="100"><input type="text" name="product_brand" placeholder="Enter Product Band"><br>
+        </th>
+    </tr>
+    <tr>
+        <th width="200">Product Price</th>
+        <th width="100"><input type="text" name="product_price" placeholder="Enter Product Price"><br>
+        </th>
+    </tr>
+    <tr>
+        <th width="200">Upload your File</th>
+        <th width="100"><input type="file" name="file" required>
+        </th>
+    </tr>
+    <tr>
+        <th><br>
+            <button type="submit">Upload</button></th>
+        <th><br>
+            <button type="reset">Rest</button>
+        </th>
+    </tr>
+
+</table>
+</form>
+{% if data %}
+    <h3 align="center">{{ data }}</h3>
+{% endif %}
+</body>
+</html>
